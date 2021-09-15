@@ -67,24 +67,24 @@ class Item {
 
 nodes.forEach((node) => new Item(node));
 
-class NavItem {
-  constructor(element) {
-    this.element = element;
-    this.itemNavs = Array.from(document.querySelectorAll(".nav__item"));
-    this.element.addEventListener("click", (ev) =>
-      this.handleClick(ev, "active")
-    );
-  }
+// class NavItem {
+//   constructor(element) {
+//     this.element = element;
+//     this.itemNavs = Array.from(document.querySelectorAll(".nav__item"));
+//     this.element.addEventListener("click", (ev) =>
+//       this.handleClick(ev, "active")
+//     );
+//   }
 
-  handleClick(ev, className) {
-    for (let i of this.itemNavs) {
-      i.classList.remove(className);
-    }
-    this.element.classList.add(className);
-  }
-}
+//   handleClick(ev, className) {
+//     for (let i of this.itemNavs) {
+//       i.classList.remove(className);
+//     }
+//     this.element.classList.add(className);
+//   }
+// }
 
-itemNav.forEach((itemNav) => new NavItem(itemNav));
+// itemNav.forEach((itemNav) => new NavItem(itemNav));
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
