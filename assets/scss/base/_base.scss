@@ -1,0 +1,137 @@
+@use "sass:math";
+@function strip-unit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  // border: 1px solid #333;
+}
+
+$min_width: 320px;
+$max_width: 1280px;
+$min_font: 16px;
+$max_font: 22px;
+
+html {
+  scroll-behavior: smooth;
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color-dark);
+}
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+$mobile-width: 640px;
+$tablet-portrait-width: 1007px;
+$desktop-width: 1008px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: #{$mobile-width + 1})  and (max-width: #{$tablet-portrait-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: #{$tablet-portrait-width + 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+.title {
+  margin-bottom: 60px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    font-size: var(--h2-font-size);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ff7e7c91;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(1, 100%, 68%);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(1, 100%, 68%);
+}

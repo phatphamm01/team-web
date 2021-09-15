@@ -1,0 +1,230 @@
+:root {
+  --duration: 350ms;
+  --timing-fn: ease;
+}
+
+.exercise {
+  scroll-margin-top: calc(var(--h-header) + 2.5em);
+
+  margin: 4rem 0;
+  &__box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.6rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+  }
+
+  .name {
+    color: #ff7e7c;
+    margin: 0.76em 0;
+  }
+
+  .btn {
+    padding: 0.65rem 1.8rem;
+    color: #ff7e7c;
+    border: 1px solid #ff7e7c;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  .img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  @include mobile {
+    &__box {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.6rem;
+    }
+  }
+
+  @include tablet-portrait {
+    &__box {
+      gap: 1.6rem;
+    }
+  }
+}
+
+.card {
+  position: relative;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.16));
+  overflow: hidden;
+  cursor: pointer;
+
+  &__hover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    background: white;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    align-items: center;
+    top: -100%;
+    left: 0;
+    pointer-events: none;
+
+    .logo {
+      --size: 4em;
+      height: var(--size);
+      aspect-ratio: 1 / 1;
+      position: relative;
+
+      &__moon {
+        height: var(--size);
+        aspect-ratio: 1 / 1;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+      }
+
+      &__sun {
+        height: calc(var(--size) - var(--size) * 0.14);
+        aspect-ratio: 1 / 1;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+
+        top: 50%;
+        transform: translatey(-45%);
+        right: -25%;
+      }
+    }
+  }
+}
+
+.in-top > .card__hover {
+  transform-origin: 50% 0%;
+  animation: in-top var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.in-right > .card__hover {
+  transform-origin: 100% 0%;
+  animation: in-right var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+.in-bottom > .card__hover {
+  transform-origin: 50% 100%;
+  animation: in-bottom var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+.in-left > .card__hover {
+  transform-origin: 0% 0%;
+  animation: in-left var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+.out-top > .card__hover {
+  transform-origin: 50% 0%;
+  animation: out-top var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+.out-right > .card__hover {
+  transform-origin: 100% 50%;
+  animation: out-right var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+.out-bottom > .card__hover {
+  transform-origin: 50% 100%;
+  animation: out-bottom var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+.out-left > .card__hover {
+  transform-origin: 0% 0%;
+  animation: out-left var(--duration) var(--timing-fn) 0ms 1 forwards;
+}
+
+@keyframes in-top {
+  from {
+    top: -100%;
+    left: 0;
+  }
+  to {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes in-bottom {
+  from {
+    top: 100%;
+    left: 0;
+  }
+  to {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes in-right {
+  from {
+    top: 0;
+    left: 100%;
+  }
+  to {
+    top: 0;
+    left: 0;
+  }
+}
+@keyframes in-left {
+  from {
+    top: 0;
+    left: -100%;
+  }
+  to {
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes out-top {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: -100%;
+    left: 0;
+  }
+}
+
+@keyframes out-bottom {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: 100%;
+    left: 0;
+  }
+}
+
+@keyframes out-right {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: 0;
+    left: 100%;
+  }
+}
+
+@keyframes out-left {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: 0;
+    left: -100%;
+  }
+}

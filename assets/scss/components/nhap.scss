@@ -1,0 +1,60 @@
+&__hand {
+  position: absolute;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 88px;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: wave 1000ms infinite ease-in-out;
+}
+
+&__person {
+  .person {
+    &__container {
+      display: flex;
+      justify-content: space-evenly;
+      transform: translateY(-80px);
+    }
+
+    &__info {
+      position: relative;
+      text-align: center;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.2);
+
+      width: 220px;
+      padding: 50px 0 20px 0;
+      border: 1.5px solid white;
+      border-radius: 20px;
+
+      transform: translateY(-34%);
+      z-index: -1;
+      h3 {
+        color: white;
+        margin-bottom: var(--mb-0-25);
+      }
+      span {
+        font-size: var(--normal-font-size);
+      }
+    }
+
+    &__img {
+      border: 4px solid white;
+      height: 168px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      img {
+        margin-top: -24px;
+      }
+    }
+  }
+}

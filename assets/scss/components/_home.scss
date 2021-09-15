@@ -1,0 +1,71 @@
+.home {
+  scroll-margin-top: 0;
+  height: 72vh;
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    flex-basis: 50%;
+  }
+
+  &__slogan {
+    font-size: var(--big-font-size);
+    font-weight: 600;
+  }
+
+  &__text {
+    display: block;
+    font-size: var(--h3-font-size);
+    word-spacing: 0.2rem;
+    line-height: 1.6rem;
+  }
+
+  &__img {
+    width: 20rem;
+    // aspect-ratio: 16/9;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    margin-top: var(--mb-1);
+    padding: 0.6rem 2rem 0.64rem 2rem;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+
+    color: var(--text-color-light);
+    font-size: var(--smaller-font-size);
+    font-weight: 400;
+    text-transform: uppercase;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  @include tablet-portrait {
+    &__container {
+      margin-top: 6rem;
+      flex-direction: column-reverse;
+    }
+    &__content {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  }
+
+  @include mobile {
+    &__container {
+      margin-top: 6rem;
+      flex-direction: column-reverse;
+    }
+    &__content {
+      margin: 2rem 0;
+      text-align: center;
+    }
+  }
+}
