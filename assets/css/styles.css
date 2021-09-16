@@ -288,6 +288,7 @@ img {
   justify-content: center;
 }
 .title h2 {
+  text-align: center;
   font-size: var(--h2-font-size);
 }
 
@@ -397,7 +398,8 @@ img {
 
 .home {
   scroll-margin-top: 0;
-  height: 72vh;
+  height: 35rem;
+  margin-top: -2rem;
 }
 .home__container {
   height: 100%;
@@ -462,7 +464,7 @@ img {
   margin-top: 0.3rem;
 }
 .about__container {
-  height: 10em;
+  height: 8.8rem;
   position: relative;
   border-radius: 30px;
   padding: 0 2rem;
@@ -498,6 +500,7 @@ img {
   margin-top: -24px;
 }
 .about .person__info {
+  margin-top: 0.4rem;
   text-align: center;
 }
 .about .person__info h3 {
@@ -594,7 +597,6 @@ img {
   position: relative;
   filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.16));
   overflow: hidden;
-  cursor: pointer;
 }
 .card__hover {
   width: 100%;
@@ -609,7 +611,6 @@ img {
   align-items: center;
   top: -100%;
   left: 0;
-  pointer-events: none;
 }
 .card__hover .logo {
   --size: 4em;
@@ -791,7 +792,6 @@ img {
   padding: 40px;
 }
 .tools__images__item img {
-  height: 150px;
   object-fit: cover;
 }
 @media (min-width: 641px) and (max-width: 1007px) {

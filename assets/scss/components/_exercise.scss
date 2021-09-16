@@ -60,7 +60,7 @@
   position: relative;
   filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.16));
   overflow: hidden;
-  cursor: pointer;
+  // cursor: pointer;
 
   &__hover {
     width: 100%;
@@ -77,7 +77,7 @@
     align-items: center;
     top: -100%;
     left: 0;
-    pointer-events: none;
+    // pointer-events: none;
 
     .logo {
       --size: 4em;
