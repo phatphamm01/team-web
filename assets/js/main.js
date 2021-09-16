@@ -53,8 +53,8 @@ const getDirectionKey = (ev, node) => {
 class Item {
   constructor(element) {
     this.element = element;
-    this.element.addEventListener("mouseover", (ev) => this.update(ev, "in"));
-    this.element.addEventListener("mouseout", (ev) => this.update(ev, "out"));
+    this.element.addEventListener("mouseenter", (ev) => this.update(ev, "in"));
+    this.element.addEventListener("mouseleave", (ev) => this.update(ev, "out"));
   }
 
   update(ev, prefix) {
