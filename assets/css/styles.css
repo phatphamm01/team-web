@@ -281,6 +281,10 @@ img {
   height: auto;
 }
 
+main {
+  margin-bottom: 4rem;
+}
+
 .title {
   margin-bottom: 60px;
   width: 100%;
