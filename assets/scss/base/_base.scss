@@ -59,8 +59,15 @@ h3 {
 ul {
   list-style: none;
 }
+
 a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
   text-decoration: none;
+  color: var(--title-color);
 }
 button,
 input {

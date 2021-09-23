@@ -15,6 +15,7 @@
   &__box {
     display: grid;
     grid-template-columns: 1fr 1.5fr 1.5fr;
+    gap: 2em;
     align-items: center;
     transform: translateY(-46%);
   }
@@ -31,6 +32,58 @@
     align-items: center;
 
     transform: translateY(-15%);
+    position: relative;
+    img {
+      animation: hand 1.4s infinite alternate;
+    }
+  }
+
+  @keyframes hand {
+    0% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(30deg);
+    }
+  }
+
+  &__social {
+    cursor: pointer;
+    position: absolute;
+    bottom: -72%;
+
+    display: flex;
+    gap: 10px;
+    font-size: 1.8rem;
+
+    a {
+      color: white;
+      height: min-content;
+      line-height: 100%;
+    }
+  }
+
+  @include mobile {
+    &__hand {
+      margin-bottom: 2rem;
+    }
+
+    &__social {
+      bottom: -90%;
+      font-size: 3rem;
+    }
+  }
+
+  @include tablet-portrait {
+    &__social {
+      bottom: -110%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      right: 50%;
+      font-size: 2rem;
+      transform: translateX(50%);
+      gap: 3px;
+    }
   }
 
   .person {
@@ -47,8 +100,15 @@
     }
 
     &__info {
-      margin-top: 0.4rem;
       text-align: center;
+
+      border: 2px dashed #fff;
+      margin: 0 auto;
+      margin-top: -1.6rem;
+      padding-top: 2rem;
+      padding-bottom: 0.8rem;
+      border-radius: 20px;
+      width: 80%;
 
       h3 {
         color: white;
@@ -71,6 +131,7 @@
     &__box {
       grid-template-columns: 1fr;
       transform: none;
+      padding-bottom: 2rem;
     }
 
     &__hand {
@@ -87,7 +148,8 @@
       &__info {
         text-align: center;
         margin-bottom: 1.2rem;
-
+        margin-top: -2.6rem;
+        width: 80%;
         h3 {
           color: white;
           font-size: 1.6rem;
@@ -96,6 +158,28 @@
           color: white;
           font-size: 1.2rem;
         }
+      }
+    }
+  }
+
+  @include tablet-portrait {
+    &__box {
+      gap: 0.3rem;
+    }
+    .person {
+      &__info {
+        width: 100%;
+      }
+    }
+  }
+
+  @include tablet-landscape {
+    &__box {
+      gap: 0rem;
+    }
+    .person {
+      &__info {
+        width: 80%;
       }
     }
   }

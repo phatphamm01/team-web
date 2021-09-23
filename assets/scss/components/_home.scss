@@ -46,6 +46,11 @@
     font-weight: 400;
     text-transform: uppercase;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    transition: background-color 0.1s linear;
+    &:hover {
+      background-color: #fd6b69;
+    }
   }
 
   @include tablet-portrait {

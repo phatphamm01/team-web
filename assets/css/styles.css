@@ -263,7 +263,13 @@ ul {
 }
 
 a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
   text-decoration: none;
+  color: var(--title-color);
 }
 
 button,
@@ -367,6 +373,16 @@ main {
   aspect-ratio: 1/1;
   position: relative;
 }
+.nav .logo::after {
+  font-family: var(--body-font);
+  content: "Summon";
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(44%);
+  left: calc(100% + 16px);
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
 .nav .logo__moon {
   height: var(--size);
   aspect-ratio: 1/1;
@@ -374,9 +390,10 @@ main {
   border-radius: 50%;
 }
 .nav .logo__sun {
-  height: calc(var(--size) - var(--size) * 0.14);
+  height: calc(var(--size) - var(--size) * 0.1);
   aspect-ratio: 1/1;
   background: var(--primary-color);
+  border: 3px solid white;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -386,6 +403,9 @@ main {
 @media (max-width: 640px) {
   .nav_logo {
     margin: auto;
+  }
+  .nav_logo .logo {
+    right: 70%;
   }
   .nav__menu {
     display: none;
@@ -441,6 +461,10 @@ main {
   font-weight: 400;
   text-transform: uppercase;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: background-color 0.1s linear;
+}
+.home__btn:hover {
+  background-color: #fd6b69;
 }
 @media (min-width: 641px) and (max-width: 1007px) {
   .home__container {
@@ -478,6 +502,7 @@ main {
 .about__box {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1.5fr;
+  gap: 2em;
   align-items: center;
   transform: translateY(-46%);
 }
@@ -491,6 +516,51 @@ main {
   justify-content: center;
   align-items: center;
   transform: translateY(-15%);
+  position: relative;
+}
+.about__hand img {
+  animation: hand 1.4s infinite alternate;
+}
+@keyframes hand {
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+.about__social {
+  cursor: pointer;
+  position: absolute;
+  bottom: -72%;
+  display: flex;
+  gap: 10px;
+  font-size: 1.8rem;
+}
+.about__social a {
+  color: white;
+  height: min-content;
+  line-height: 100%;
+}
+@media (max-width: 640px) {
+  .about__hand {
+    margin-bottom: 2rem;
+  }
+  .about__social {
+    bottom: -90%;
+    font-size: 3rem;
+  }
+}
+@media (min-width: 641px) and (max-width: 1007px) {
+  .about__social {
+    bottom: -110%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    right: 50%;
+    font-size: 2rem;
+    transform: translateX(50%);
+    gap: 3px;
+  }
 }
 .about .person__img {
   border: 4px solid white;
@@ -504,8 +574,14 @@ main {
   margin-top: -24px;
 }
 .about .person__info {
-  margin-top: 0.4rem;
   text-align: center;
+  border: 2px dashed #fff;
+  margin: 0 auto;
+  margin-top: -1.6rem;
+  padding-top: 2rem;
+  padding-bottom: 0.8rem;
+  border-radius: 20px;
+  width: 80%;
 }
 .about .person__info h3 {
   color: white;
@@ -524,6 +600,7 @@ main {
   .about__box {
     grid-template-columns: 1fr;
     transform: none;
+    padding-bottom: 2rem;
   }
   .about__hand {
     transform: translateY(-50%);
@@ -535,6 +612,8 @@ main {
   .about .person__info {
     text-align: center;
     margin-bottom: 1.2rem;
+    margin-top: -2.6rem;
+    width: 80%;
   }
   .about .person__info h3 {
     color: white;
@@ -543,6 +622,22 @@ main {
   .about .person__info span {
     color: white;
     font-size: 1.2rem;
+  }
+}
+@media (min-width: 641px) and (max-width: 1007px) {
+  .about__box {
+    gap: 0.3rem;
+  }
+  .about .person__info {
+    width: 100%;
+  }
+}
+@media (min-width: 1008px) {
+  .about__box {
+    gap: 0rem;
+  }
+  .about .person__info {
+    width: 80%;
   }
 }
 
@@ -584,17 +679,19 @@ main {
   color: var(--text-color-light);
   background-color: var(--primary-color);
 }
+.exercise .btn:hover a {
+  color: var(--text-color-light);
+}
 .exercise .img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 16px;
 }
 @media (max-width: 640px) {
   .exercise__box {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.6rem;
   }
 }
 @media (min-width: 641px) and (max-width: 1007px) {
@@ -608,6 +705,12 @@ main {
   filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.16));
   overflow: hidden;
   border-radius: 16px;
+  width: 100%;
+}
+@media (max-width: 640px) {
+  .card {
+    height: 70vw;
+  }
 }
 .card__hover {
   width: 100%;
@@ -766,6 +869,7 @@ main {
   }
 }
 .tools {
+  scroll-margin-top: 3.2rem;
   margin-top: 80px;
 }
 .tools__images {
